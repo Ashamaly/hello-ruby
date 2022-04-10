@@ -40,8 +40,10 @@ user = {
 flag_value = client.variation(feature_flag_key, user, false)
 
 if flag_value
+  #Site is up and working as expected
   show_message "Feature flag '#{feature_flag_key}' is #{flag_value} for this user"
 else
+  #Site has gone down and content has changed
   show_message "Site is under Maintenance"
   #Use webhook here to send a message to the on call manager
   request = Net::HTTP::Post.new(url)
